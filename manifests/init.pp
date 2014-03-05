@@ -67,7 +67,7 @@ class { 'celery':
   app_name    => "${proj_name}",
   python_path        => "/home/vagrant/.venvs/${proj_name}/bin/python",
   app_path           => "/vagrant/${proj_name}",
-  manage_path        => "/vagrant/manage.py",
+  manage_path        => "/vagrant/${proj_name}/manage.py",
   user               => 'vagrant',
 }
 ->
@@ -76,7 +76,7 @@ class { 'gunicorn':
   app_name    => "${proj_name}",
   python_path        => "/home/vagrant/.venvs/${proj_name}/bin/python",
   app_path           => "/vagrant/${proj_name}",
-  manage_path        => "/vagrant/manage.py",
+  manage_path        => "/vagrant/${proj_name}/manage.py",
   user               => 'vagrant',
 }
 ->
@@ -85,20 +85,19 @@ class {'supervisord::exec':
   venv_path          => "/home/vagrant/.venvs/${proj_name}",
 } ->
 
-
 exec { 'collect_statics':
     cwd     =>'/vagrant/',
     user   => 'vagrant',
-    command => "/home/vagrant/.venvs/${proj_name}/bin/python /vagrant/manage.py collectstatic --noinput",
+    command => "/home/vagrant/.venvs/${proj_name}/bin/python /vagrant/${proj_name}/manage.py collectstatic --noinput",
     logoutput => false,
 }->
 
-# exec { 'syncdb':
-#     cwd     =>'/vagrant/',
-#     user   => 'vagrant',
-#     command => "/home/vagrant/.venvs/${proj_name}/bin/python /vagrant/manage.py syncdb --noinput",
-#     logoutput => true,
-# }->
+exec { 'syncdb':
+    cwd     =>'/vagrant/',
+    user   => 'vagrant',
+    command => "/home/vagrant/.venvs/${proj_name}/bin/python /vagrant/${proj_name}/manage.py syncdb --noinput",
+    logoutput => true,
+}->
 #nginx
 class {'nginx':
 
