@@ -46,7 +46,6 @@ class { 'python':
   virtualenv => true,
   gunicorn   => false,
 } ->
-
 #venv
 python::virtualenv { "/home/vagrant/.venvs/${proj_name}":
   ensure       => present,

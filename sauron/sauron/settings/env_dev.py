@@ -1,20 +1,19 @@
-from utils import LOCAL
 SITE_ID = 1
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 SERVE_MEDIA = True
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': LOCAL('db.sqlite') ,
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'saurondb' ,
+        'USER': 'sauron_u',
+        'PASSWORD': 'sauron_u',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
 
 
 #settings this for debug tools
-INTERNAL_IPS = ('127.0.0.1',)
+INTERNAL_IPS = ('127.0.0.1','10.0.2.2')
