@@ -97,6 +97,12 @@ exec { 'syncdb':
     command => "/home/vagrant/.venvs/${proj_name}/bin/python /vagrant/${proj_name}/manage.py syncdb --noinput",
     logoutput => true,
 }->
+exec { 'fixtures_load_admin':
+    cwd     =>'/vagrant/',
+    user   => 'vagrant',
+    command => "/home/vagrant/.venvs/${proj_name}/bin/python /vagrant/${proj_name}/manage.py loaddata /vagrant/${proj_name}/${proj_name}/fixtures/admin_user.yaml",
+    logoutput => true,
+}->
 #nginx
 class {'nginx':
 
