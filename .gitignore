@@ -43,3 +43,5 @@ sauron/static_root/*
 
 docs/_build/*
 docs/_static/*
+
+sauron/sauron/confs.json
