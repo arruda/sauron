@@ -17,13 +17,17 @@ DJANGO_ROOT = os.path.dirname(MAIN_APP_ROOT)
 SITE_ROOT = os.path.dirname(DJANGO_ROOT)
 sys.path.append(DJANGO_ROOT)
 
-SECRET_KEY = ')i1lik@q^ls@$koedw!)#$x#21==_kc7-2w9lz^gmk4@m3!9g9'
-
-ON_PRODUCTION = os.environ.has_key('ON_PRODUCTION')
 
 from config import *
 from installed_apps import *
 from logging import *
+from utils import get_local_setting
+
+SECRET_KEY = get_local_setting('SECRET_KEY')
+#')i1lik@q^ls@$koedw!)#$x#21==_kc7-2w9lz^gmk4@m3!9g9'
+
+ON_PRODUCTION = get_local_setting('ON_PRODUCTION')
+
 
 NO_DEPRECATION_WARNINGS=False
 if not ON_PRODUCTION:
@@ -31,6 +35,9 @@ if not ON_PRODUCTION:
     from env_dev import *
 else:
     from env_prod import *
+
+
+INSTALLED_APPS += MORE_INSTALLED_APPS
 
 if NO_DEPRECATION_WARNINGS:
     import warnings

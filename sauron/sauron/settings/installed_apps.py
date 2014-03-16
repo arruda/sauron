@@ -10,10 +10,8 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
 
     'djcelery',
-    'gunicorn',
     'django_extensions',
     'model_utils',
-    'debug_toolbar',
     'django_h5bp',
 
 #apps
