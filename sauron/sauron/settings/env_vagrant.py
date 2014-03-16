@@ -16,6 +16,7 @@ DATABASES = {
 
 MORE_INSTALLED_APPS = (
     'debug_toolbar',
+    'gunicorn',
 )
 
 #settings this for debug tools
