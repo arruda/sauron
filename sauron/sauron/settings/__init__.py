@@ -26,15 +26,18 @@ from utils import get_local_setting
 SECRET_KEY = get_local_setting('SECRET_KEY')
 #')i1lik@q^ls@$koedw!)#$x#21==_kc7-2w9lz^gmk4@m3!9g9'
 
-ON_PRODUCTION = get_local_setting('ON_PRODUCTION')
+ENV_SETTINGS = get_local_setting('ENV_SETTINGS')
 
 
 NO_DEPRECATION_WARNINGS=False
-if not ON_PRODUCTION:
+
+if ENV_SETTINGS == 'local':
     NO_DEPRECATION_WARNINGS=True
-    from env_dev import *
-else:
-    from env_prod import *
+    from env_local import *
+elif ENV_SETTINGS == 'vagrant':
+    from env_vagrant import *
+elif ENV_SETTINGS == 'heroku':
+    from env_heroku import *
 
 
 INSTALLED_APPS += MORE_INSTALLED_APPS

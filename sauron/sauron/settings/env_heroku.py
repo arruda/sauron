@@ -1,4 +1,4 @@
-from utils import LOCAL
+
 import dj_database_url
 SITE_ID = 1
 

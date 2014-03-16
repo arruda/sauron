@@ -1,4 +1,4 @@
 {
     "SECRET_KEY": ")i1lik@q^ls@$koedw!)#$x#21==_kc7-2w9lz^gmk4@m3!9g9",
-    "ON_PRODUCTION": true
+    "ENV_SETTINGS": "local/vagrant/heroku"
 }
