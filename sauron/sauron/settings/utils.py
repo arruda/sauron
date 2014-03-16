@@ -10,7 +10,6 @@ SITE_ROOT = os.path.dirname(DJANGO_ROOT)
 LOCAL = lambda x: os.path.join(DJANGO_ROOT, x)
 
 CONFS_JSON_PATH = LOCAL('confs.json')
-print ">>>", CONFS_JSON_PATH
 with open(CONFS_JSON_PATH) as f:
     secrets = json.loads(f.read())
 
