@@ -40,3 +40,6 @@ sauron/celerybeat-schedule
 sauron/celerybeat.pid
 sauron/db.sqlite
 sauron/static_root/*
+
+docs/_build/*
+docs/_static/*
