@@ -44,7 +44,7 @@ STATICFILES_FINDERS = (
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    # 'django.template.loaders.eggs.Loader',
 )
 
 TEMPLATE_DIRS = (
@@ -60,7 +60,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-	#debug toolbar
+    #debug toolbar
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
@@ -68,25 +68,34 @@ WSGI_APPLICATION = 'sauron.wsgi.application'
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     # default template context processors
-	'django.contrib.auth.context_processors.auth',
+    'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
-	'django.core.context_processors.tz',
-	'django.contrib.messages.context_processors.messages',
+    'django.core.context_processors.tz',
+    'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
+    # allauth specific context processors
+    "allauth.account.context_processors.account",
+    "allauth.socialaccount.context_processors.socialaccount",
 
     #others
 
 )
 
 AUTHENTICATION_BACKENDS = (
-        #'user_backends.email_username.EmailOrUsernameModelBackend',
-        'django.contrib.auth.backends.ModelBackend',
+    # Needed to login by username in Django admin, regardless of `allauth`
+    "django.contrib.auth.backends.ModelBackend",
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    "allauth.account.auth_backends.AuthenticationBackend",
 )
 
 
 DEBUG_TOOLBAR_CONFIG = {
-'INTERCEPT_REDIRECTS':False,
+    'INTERCEPT_REDIRECTS': False,
 }
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True

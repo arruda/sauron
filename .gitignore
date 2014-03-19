@@ -34,7 +34,7 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
-
+*.sublime-*
 .vagrant/*
 sauron/celerybeat-schedule
 sauron/celerybeat.pid

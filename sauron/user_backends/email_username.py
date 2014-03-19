@@ -2,7 +2,7 @@
 """
     user_backends.email_username
     ~~~~~~~~~~~~~~
-    
+
     Login with email or username
 
     :copyright: (c) 2012 by Arruda
@@ -17,6 +17,9 @@ class BasicBackend:
             return User.objects.get(pk=user_id)
         except User.DoesNotExist:
             return None
+
+
+
 
 class EmailOrUsernameModelBackend(BasicBackend):
     def authenticate(self, username=None, password=None):
