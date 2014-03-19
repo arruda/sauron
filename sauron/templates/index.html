@@ -1,6 +1,10 @@
 {% extends "util/base.html" %}
 {% load staticfiles %}
 
+{% load i18n %}
+
+
+{% block page-title %}{{ block.super }} | {% trans "One program to watch them all" %}{% endblock %}
 
 
 {% block main-jumbotron %}
@@ -8,10 +12,12 @@
     <div class="jumbotron">
       <div class="container">
         <div class="col-lg-8">
-        <h1>One program to watch them all</h1>
-        <p>Watch all your TV series and movies with Sauron. </br>
-        It learns what kind of torrents you download so that it can download automatically new episodes when they are available.</p>
-        <p><a class="btn btn-primary btn-lg" href="">See more &raquo;</a></p>
+        <h1>{% trans "One program to watch them all" %}</h1>
+        <p>{% blocktrans %}
+        "One program to watch them all, One program to find them, One program to bring them all and in the HardDrive bind them"{% endblocktrans %}</p>
+        <p>{% blocktrans %}Watch all your TV series and movies with Sauron. </br>
+        It learns what kind of torrents you download so that it can download automatically new episodes when they are available.{% endblocktrans %}</p>
+        <p><a class="btn btn-primary btn-lg" href="{% url 'account_signup' %}">{% trans "Sign Up" %} &raquo;</a></p>
         </div>
         <div class="col-lg-4">
             <img alt="The Sauron Eye" width="300px" height="300px" src="{% static "images/logo_nbg.png" %}">
