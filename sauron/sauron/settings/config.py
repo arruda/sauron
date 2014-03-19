@@ -8,7 +8,7 @@ MANAGERS = ADMINS
 
 TIME_ZONE = 'America/Sao_Paulo'
 
-LANGUAGE_CODE = 'pt-br'
+LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
 
