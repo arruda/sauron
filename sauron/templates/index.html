@@ -1,16 +1,23 @@
 {% extends "util/base.html" %}
 {% load staticfiles %}
 
+
+
 {% block main-jumbotron %}
-<div class="col-lg-8">
-<h1>One program to watch them all</h1>
-<p>Watch all your TV series and movies with Sauron. </br>
-It learns what kind of torrents you download so that it can download automatically new episodes when they are available.</p>
-<p><a class="btn btn-primary btn-lg" href="">See more &raquo;</a></p>
-</div>
-<div class="col-lg-4">
-    <img alt="The Sauron Eye" width="300px" height="300px" src="{% static "images/logo_nbg.png" %}">
-</div>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <div class="col-lg-8">
+        <h1>One program to watch them all</h1>
+        <p>Watch all your TV series and movies with Sauron. </br>
+        It learns what kind of torrents you download so that it can download automatically new episodes when they are available.</p>
+        <p><a class="btn btn-primary btn-lg" href="">See more &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+            <img alt="The Sauron Eye" width="300px" height="300px" src="{% static "images/logo_nbg.png" %}">
+        </div>
+      </div>
+    </div>
 {% endblock %}
 
 {% block main-container %}
