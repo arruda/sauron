@@ -5,7 +5,7 @@ SERVE_MEDIA = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'saurondb' ,
+        'NAME': 'saurondb',
         'USER': 'sauron_u',
         'PASSWORD': 'sauron_u',
         'HOST': '127.0.0.1',
@@ -20,4 +20,4 @@ MORE_INSTALLED_APPS = (
 )
 
 #settings this for debug tools
-INTERNAL_IPS = ('127.0.0.1','10.0.2.2')
+INTERNAL_IPS = ('127.0.0.1', '10.0.2.2')
